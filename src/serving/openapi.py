@@ -4,7 +4,6 @@ from typing import Any
 
 from src.serving.schemas import swagger_input_example
 
-
 SWAGGER_UI_HTML = """<!DOCTYPE html>
 <html lang=\"en\">
   <head>

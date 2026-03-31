@@ -1,0 +1,15 @@
+Politica: max_gap_alert_0.15
+Threshold: 0.35
+Alertas: 10
+Principais gaps acima do limite:
+- age_group::precision gap=0.5000 (lt_45 -> 45_54)
+- age_group::recall gap=0.2857 (45_54 -> 65_plus)
+- age_group::f1 gap=0.1905 (lt_45 -> 65_plus)
+- age_group::false_negative_rate gap=0.2857 (65_plus -> 45_54)
+- age_group::false_positive_rate gap=0.5455 (45_54 -> 55_64)
+- sex::precision gap=0.5167 (fem -> male)
+- sex::recall gap=0.3846 (fem -> male)
+- sex::f1 gap=0.4881 (fem -> male)
+- sex::false_negative_rate gap=0.3846 (male -> fem)
+- sex::false_positive_rate gap=0.2610 (fem -> male)
+Regiao: nao calculada por ausencia do atributo no dataset atual.

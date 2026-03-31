@@ -1,0 +1,114 @@
+{
+  "status": "retraining_recommended",
+  "summary": {
+    "sample_size": 18,
+    "sufficient_sample": false,
+    "alert_count": 17,
+    "retraining_recommended": true
+  },
+  "alerts": [
+    {
+      "severity": "critical",
+      "type": "error_rate",
+      "value": 0.05263157894736842
+    },
+    {
+      "severity": "warning",
+      "type": "invalid_request_rate",
+      "value": 1.0
+    },
+    {
+      "severity": "warning",
+      "type": "numeric_drift",
+      "feature": "age",
+      "value": 10.785453383175962
+    },
+    {
+      "severity": "warning",
+      "type": "numeric_drift",
+      "feature": "resting_blood_pressure",
+      "value": 10.929405041094146
+    },
+    {
+      "severity": "warning",
+      "type": "numeric_drift",
+      "feature": "cholesterol",
+      "value": 11.083715560300714
+    },
+    {
+      "severity": "warning",
+      "type": "numeric_drift",
+      "feature": "max_heart_rate",
+      "value": 10.854726933649877
+    },
+    {
+      "severity": "warning",
+      "type": "numeric_drift",
+      "feature": "oldpeak",
+      "value": 10.729116618525229
+    },
+    {
+      "severity": "warning",
+      "type": "numeric_drift",
+      "feature": "num_vessels",
+      "value": 5.5682081736724305
+    },
+    {
+      "severity": "warning",
+      "type": "categorical_drift",
+      "feature": "sex",
+      "value": 0.31818181818181823
+    },
+    {
+      "severity": "warning",
+      "type": "categorical_drift",
+      "feature": "chest_pain_type",
+      "value": 1.0
+    },
+    {
+      "severity": "warning",
+      "type": "categorical_drift",
+      "feature": "fasting_blood_sugar_gt_120",
+      "value": 1.0
+    },
+    {
+      "severity": "warning",
+      "type": "categorical_drift",
+      "feature": "rest_ecg",
+      "value": 1.0
+    },
+    {
+      "severity": "warning",
+      "type": "categorical_drift",
+      "feature": "exercise_induced_angina",
+      "value": 1.0
+    },
+    {
+      "severity": "warning",
+      "type": "categorical_drift",
+      "feature": "slope",
+      "value": 0.5537190082644627
+    },
+    {
+      "severity": "warning",
+      "type": "categorical_drift",
+      "feature": "thal",
+      "value": 1.0
+    },
+    {
+      "severity": "warning",
+      "type": "score_drift",
+      "feature": "positive_class_probability",
+      "value": 8.453633736672472
+    },
+    {
+      "severity": "warning",
+      "type": "positive_rate_shift",
+      "feature": "prediction",
+      "value": 0.4669421487603306
+    }
+  ],
+  "retraining_reasons": [
+    "operational_error_rate"
+  ]
+}

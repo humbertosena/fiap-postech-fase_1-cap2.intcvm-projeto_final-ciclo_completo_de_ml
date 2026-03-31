@@ -1,0 +1,152 @@
+{
+  "summary": {
+    "sample_size": 18,
+    "drift_alert_count": 15
+  },
+  "numeric_features": {
+    "age": {
+      "psi": 10.785453383175962,
+      "missing_rate": 0.0
+    },
+    "resting_blood_pressure": {
+      "psi": 10.929405041094146,
+      "missing_rate": 0.0
+    },
+    "cholesterol": {
+      "psi": 11.083715560300714,
+      "missing_rate": 0.0
+    },
+    "max_heart_rate": {
+      "psi": 10.854726933649877,
+      "missing_rate": 0.0
+    },
+    "oldpeak": {
+      "psi": 10.729116618525229,
+      "missing_rate": 0.0
+    },
+    "num_vessels": {
+      "psi": 5.5682081736724305,
+      "missing_rate": 0.0
+    }
+  },
+  "categorical_features": {
+    "sex": {
+      "max_abs_diff": 0.31818181818181823
+    },
+    "chest_pain_type": {
+      "max_abs_diff": 1.0
+    },
+    "fasting_blood_sugar_gt_120": {
+      "max_abs_diff": 1.0
+    },
+    "rest_ecg": {
+      "max_abs_diff": 1.0
+    },
+    "exercise_induced_angina": {
+      "max_abs_diff": 1.0
+    },
+    "slope": {
+      "max_abs_diff": 0.5537190082644627
+    },
+    "thal": {
+      "max_abs_diff": 1.0
+    }
+  },
+  "score": {
+    "psi": 8.453633736672472,
+    "positive_rate": 1.0,
+    "positive_rate_diff": 0.4669421487603306
+  },
+  "alerts": [
+    {
+      "severity": "warning",
+      "type": "numeric_drift",
+      "feature": "age",
+      "value": 10.785453383175962
+    },
+    {
+      "severity": "warning",
+      "type": "numeric_drift",
+      "feature": "resting_blood_pressure",
+      "value": 10.929405041094146
+    },
+    {
+      "severity": "warning",
+      "type": "numeric_drift",
+      "feature": "cholesterol",
+      "value": 11.083715560300714
+    },
+    {
+      "severity": "warning",
+      "type": "numeric_drift",
+      "feature": "max_heart_rate",
+      "value": 10.854726933649877
+    },
+    {
+      "severity": "warning",
+      "type": "numeric_drift",
+      "feature": "oldpeak",
+      "value": 10.729116618525229
+    },
+    {
+      "severity": "warning",
+      "type": "numeric_drift",
+      "feature": "num_vessels",
+      "value": 5.5682081736724305
+    },
+    {
+      "severity": "warning",
+      "type": "categorical_drift",
+      "feature": "sex",
+      "value": 0.31818181818181823
+    },
+    {
+      "severity": "warning",
+      "type": "categorical_drift",
+      "feature": "chest_pain_type",
+      "value": 1.0
+    },
+    {
+      "severity": "warning",
+      "type": "categorical_drift",
+      "feature": "fasting_blood_sugar_gt_120",
+      "value": 1.0
+    },
+    {
+      "severity": "warning",
+      "type": "categorical_drift",
+      "feature": "rest_ecg",
+      "value": 1.0
+    },
+    {
+      "severity": "warning",
+      "type": "categorical_drift",
+      "feature": "exercise_induced_angina",
+      "value": 1.0
+    },
+    {
+      "severity": "warning",
+      "type": "categorical_drift",
+      "feature": "slope",
+      "value": 0.5537190082644627
+    },
+    {
+      "severity": "warning",
+      "type": "categorical_drift",
+      "feature": "thal",
+      "value": 1.0
+    },
+    {
+      "severity": "warning",
+      "type": "score_drift",
+      "feature": "positive_class_probability",
+      "value": 8.453633736672472
+    },
+    {
+      "severity": "warning",
+      "type": "positive_rate_shift",
+      "feature": "prediction",
+      "value": 0.4669421487603306
+    }
+  ]
+}

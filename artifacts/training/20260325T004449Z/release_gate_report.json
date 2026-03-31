@@ -1,0 +1,76 @@
+{
+  "status": "approved_with_alerts",
+  "summary": {
+    "promotion_eligible": true,
+    "blocking_failures": 0,
+    "active_alerts": 2
+  },
+  "blocking_checks": [
+    {
+      "name": "minimum_recall",
+      "status": "passed",
+      "message": "Recall 0.8571 atende ao minimo 0.8000.",
+      "details": {
+        "actual": 0.8571428571428571,
+        "expected_min": 0.8
+      }
+    },
+    {
+      "name": "minimum_precision",
+      "status": "passed",
+      "message": "Precision 0.7059 atende ao minimo 0.7000.",
+      "details": {
+        "actual": 0.7058823529411765,
+        "expected_min": 0.7
+      }
+    },
+    {
+      "name": "approved_threshold_lock",
+      "status": "passed",
+      "message": "Threshold operacional 0.35 respeita o contrato aprovado.",
+      "details": {
+        "actual": 0.35,
+        "expected": 0.35
+      }
+    },
+    {
+      "name": "threshold_precision_constraint",
+      "status": "passed",
+      "message": "Threshold vencedor respeitou o piso minimo de precision.",
+      "details": {
+        "used_precision_constraint": true,
+        "expected": true
+      }
+    }
+  ],
+  "alert_checks": [
+    {
+      "name": "fairness_gap_alerts",
+      "status": "alert",
+      "message": "Foram encontrados 10 alertas de fairness acima do limite configurado.",
+      "details": {
+        "alert_count": 10,
+        "gap_alert_threshold": 0.15
+      }
+    },
+    {
+      "name": "limited_confidence_groups",
+      "status": "passed",
+      "message": "Nenhum grupo com baixa amostra na auditoria.",
+      "details": {
+        "groups": [],
+        "min_group_size": 10
+      }
+    },
+    {
+      "name": "region_fairness_unavailable",
+      "status": "alert",
+      "message": "Fairness por regiao continua indisponivel no dataset atual.",
+      "details": {
+        "unavailable_dimensions": {
+          "region": "Dataset atual nao contem atributo literal de regiao."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    env:
+      UV_CACHE_DIR: /tmp/uv-cache
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Sync dependencies
+        run: uv sync --dev
+
+      - name: Run lint
+        run: uv run ruff check .
+
+      - name: Run tests
+        run: uv run pytest -q
+
+      - name: Validate dataset ingestion
+        run: uv run python -m src.data.ingest_mod
+
+  validation:
+    runs-on: ubuntu-latest
+    needs: quality
+    env:
+      UV_CACHE_DIR: /tmp/uv-cache
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Sync dependencies
+        run: uv sync --dev
+
+      - name: Run evaluation pipeline
+        run: uv run python -m src.evaluation.evaluate
+
+      - name: Build approved manifest locally
+        run: uv run python -m src.models.release
+
+      - name: Generate synthetic API traffic
+        run: |
+          uv run python - <<'PY'
+          from src.serving.app import create_app
+          app = create_app()
+          client = app.test_client()
+          payload = {
+              "input_data": {
+                  "age": 63,
+                  "sex": "male",
+                  "chest_pain_type": "typical",
+                  "resting_blood_pressure": 145,
+                  "cholesterol": 233,
+                  "fasting_blood_sugar_gt_120": "yes",
+                  "rest_ecg": "normal",
+                  "max_heart_rate": 150,
+                  "exercise_induced_angina": "no",
+                  "oldpeak": 2.3,
+                  "slope": "flat",
+                  "num_vessels": 0,
+                  "thal": "normal",
+              }
+          }
+          client.get("/health")
+          client.post("/predict", json=payload)
+          client.post("/predict", json=payload)
+          PY
+
+      - name: Run monitoring pipeline
+        run: uv run python -m src.monitoring.run_monitoring
+
+      - name: Upload evaluation artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: evaluation-artifacts
+          path: |
+            artifacts/training/
+            artifacts/monitoring/
+            models/
+          if-no-files-found: warn
+
+  packaging:
+    runs-on: ubuntu-latest
+    needs: quality
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t fiap-healthcare-plus-mlops:ci .
+
+  release:
+    runs-on: ubuntu-latest
+    needs: validation
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    env:
+      UV_CACHE_DIR: /tmp/uv-cache
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Sync dependencies
+        run: uv sync --dev
+
+      - name: Run release pipeline with gates
+        run: uv run python -m src.models.release
+
+      - name: Upload release artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-artifacts
+          path: |
+            artifacts/training/
+            artifacts/monitoring/
+            models/
+          if-no-files-found: warn

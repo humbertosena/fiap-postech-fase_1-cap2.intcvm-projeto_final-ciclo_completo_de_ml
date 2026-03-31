@@ -1,0 +1,97 @@
+{
+  "summary": {
+    "sample_size": 18,
+    "api_event_count": 42,
+    "prediction_completed_count": 18,
+    "prediction_failed_count": 1,
+    "invalid_request_rate": 1.0
+  },
+  "numeric_features": {
+    "age": {
+      "missing_rate": 0.0,
+      "out_of_range_rate": 0.0
+    },
+    "resting_blood_pressure": {
+      "missing_rate": 0.0,
+      "out_of_range_rate": 0.0
+    },
+    "cholesterol": {
+      "missing_rate": 0.0,
+      "out_of_range_rate": 0.0
+    },
+    "max_heart_rate": {
+      "missing_rate": 0.0,
+      "out_of_range_rate": 0.0
+    },
+    "oldpeak": {
+      "missing_rate": 0.0,
+      "out_of_range_rate": 0.0
+    },
+    "num_vessels": {
+      "missing_rate": 0.0,
+      "out_of_range_rate": 0.0
+    }
+  },
+  "categorical_features": {
+    "sex": {
+      "missing_rate": 0.0,
+      "unknown_category_rate": 0.0
+    },
+    "chest_pain_type": {
+      "missing_rate": 0.0,
+      "unknown_category_rate": 1.0
+    },
+    "fasting_blood_sugar_gt_120": {
+      "missing_rate": 0.0,
+      "unknown_category_rate": 1.0
+    },
+    "rest_ecg": {
+      "missing_rate": 0.0,
+      "unknown_category_rate": 1.0
+    },
+    "exercise_induced_angina": {
+      "missing_rate": 0.0,
+      "unknown_category_rate": 1.0
+    },
+    "slope": {
+      "missing_rate": 0.0,
+      "unknown_category_rate": 0.0
+    },
+    "thal": {
+      "missing_rate": 0.0,
+      "unknown_category_rate": 1.0
+    }
+  },
+  "alerts": [
+    {
+      "severity": "warning",
+      "type": "unknown_category",
+      "feature": "chest_pain_type",
+      "value": 1.0
+    },
+    {
+      "severity": "warning",
+      "type": "unknown_category",
+      "feature": "fasting_blood_sugar_gt_120",
+      "value": 1.0
+    },
+    {
+      "severity": "warning",
+      "type": "unknown_category",
+      "feature": "rest_ecg",
+      "value": 1.0
+    },
+    {
+      "severity": "warning",
+      "type": "unknown_category",
+      "feature": "exercise_induced_angina",
+      "value": 1.0
+    },
+    {
+      "severity": "warning",
+      "type": "unknown_category",
+      "feature": "thal",
+      "value": 1.0
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+Status: approved_with_alerts
+Elegivel para promocao: True
+Promovido no registro local: True
+Falhas bloqueantes: 0
+Alertas ativos: 2

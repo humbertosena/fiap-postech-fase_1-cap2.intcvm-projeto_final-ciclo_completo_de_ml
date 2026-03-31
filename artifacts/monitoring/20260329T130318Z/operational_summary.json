@@ -1,0 +1,9 @@
+{
+  "api_event_count": 42,
+  "prediction_count": 18,
+  "prediction_failure_count": 1,
+  "error_rate": 0.05263157894736842,
+  "latency_p50_ms": 23.938541009556502,
+  "latency_p95_ms": 77.2605219273826,
+  "positive_prediction_rate": 1.0
+}

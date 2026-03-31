@@ -1,0 +1,34 @@
+{
+  "model_scope": {
+    "intended_use": "Triagem cardiaca experimental para apoio tecnico em avaliacao de risco.",
+    "not_intended_for": "Diagnostico definitivo ou decisao clinica autonoma."
+  },
+  "dataset_limitations": [
+    "Dataset atual nao contem atributo real de regiao.",
+    "Base pequena e de origem principal unica, sujeita a alta variancia por subgrupo.",
+    "Fairness por idade e sexo e observacional, nao causal."
+  ],
+  "model_limitations": [
+    "Modelo atual e um baseline com LogisticRegression.",
+    "Threshold foi calibrado em hold-out unico, sem validacao cruzada nesta fase.",
+    "Nao ha comparacao sistematica de multiplos candidatos nesta etapa."
+  ],
+  "operational_policy": {
+    "decision_threshold": 0.35,
+    "threshold_min_precision": 0.7,
+    "selected_by_threshold_tuning": true,
+    "fairness_policy": "max_gap_alert_0.15",
+    "fairness_alert_threshold": 0.15
+  },
+  "current_risks": {
+    "global_recall": 0.8571428571428571,
+    "global_precision": 0.7058823529411765,
+    "fairness_alert_count": 10,
+    "requires_human_review": true
+  },
+  "recommended_next_steps": [
+    "Validar estabilidade do threshold com cross-validation ou bootstrap.",
+    "Comparar baseline atual com candidatos alternativos antes de promover o modelo.",
+    "Expandir a base ou adicionar atributo/proxy aprovado para regiao antes de afirmar fairness regional."
+  ]
+}

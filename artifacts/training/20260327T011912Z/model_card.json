@@ -1,0 +1,34 @@
+{
+  "model_name": "logistic_regression",
+  "model_family": "binary_classification",
+  "development_stage": "phase_3_governance",
+  "primary_metric": "recall",
+  "decision_threshold": 0.35,
+  "global_metrics": {
+    "accuracy": 0.7704918032786885,
+    "precision": 0.7058823529411765,
+    "recall": 0.8571428571428571,
+    "f1": 0.7741935483870968,
+    "roc_auc": 0.8766233766233767,
+    "decision_threshold": 0.35
+  },
+  "audited_groups": [
+    "age_group",
+    "sex"
+  ],
+  "unavailable_dimensions": {
+    "region": "Dataset atual nao contem atributo literal de regiao."
+  },
+  "fairness_summary": {
+    "alert_count": 10,
+    "groups_with_alerts": [
+      "age_group",
+      "sex"
+    ],
+    "limited_confidence_groups": []
+  },
+  "usage_constraints": [
+    "Uso apenas como apoio a triagem e analise tecnica interna.",
+    "Nao usar como substituto de avaliacao clinica humana."
+  ]
+}

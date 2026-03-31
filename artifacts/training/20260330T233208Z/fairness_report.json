@@ -1,0 +1,317 @@
+{
+  "policy": {
+    "name": "max_gap_alert_0.15",
+    "decision_threshold": 0.35,
+    "gap_alert_threshold": 0.15,
+    "min_group_size": 10,
+    "evaluated_groups": [
+      "age_group",
+      "sex"
+    ],
+    "unavailable_dimensions": {
+      "region": "Dataset atual nao contem atributo literal de regiao."
+    }
+  },
+  "group_metrics": {
+    "age_group": [
+      {
+        "group": "age_group",
+        "value": "45_54",
+        "sample_size": 16,
+        "positive_count": 7,
+        "negative_count": 9,
+        "accuracy": 0.875,
+        "precision": 1.0,
+        "recall": 0.7142857142857143,
+        "f1": 0.8333333333333334,
+        "false_positive_rate": 0.0,
+        "false_negative_rate": 0.2857142857142857,
+        "confusion_counts": {
+          "true_negative": 9,
+          "false_positive": 0,
+          "false_negative": 2,
+          "true_positive": 5
+        },
+        "low_support": false
+      },
+      {
+        "group": "age_group",
+        "value": "55_64",
+        "sample_size": 24,
+        "positive_count": 13,
+        "negative_count": 11,
+        "accuracy": 0.6666666666666666,
+        "precision": 0.6470588235294118,
+        "recall": 0.8461538461538461,
+        "f1": 0.7333333333333333,
+        "false_positive_rate": 0.5454545454545454,
+        "false_negative_rate": 0.15384615384615385,
+        "confusion_counts": {
+          "true_negative": 5,
+          "false_positive": 6,
+          "false_negative": 2,
+          "true_positive": 11
+        },
+        "low_support": false
+      },
+      {
+        "group": "age_group",
+        "value": "65_plus",
+        "sample_size": 10,
+        "positive_count": 6,
+        "negative_count": 4,
+        "accuracy": 0.8,
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1": 0.8571428571428571,
+        "false_positive_rate": 0.5,
+        "false_negative_rate": 0.0,
+        "confusion_counts": {
+          "true_negative": 2,
+          "false_positive": 2,
+          "false_negative": 0,
+          "true_positive": 6
+        },
+        "low_support": false
+      },
+      {
+        "group": "age_group",
+        "value": "lt_45",
+        "sample_size": 11,
+        "positive_count": 2,
+        "negative_count": 9,
+        "accuracy": 0.8181818181818182,
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6666666666666666,
+        "false_positive_rate": 0.2222222222222222,
+        "false_negative_rate": 0.0,
+        "confusion_counts": {
+          "true_negative": 7,
+          "false_positive": 2,
+          "false_negative": 0,
+          "true_positive": 2
+        },
+        "low_support": false
+      }
+    ],
+    "sex": [
+      {
+        "group": "sex",
+        "value": "fem",
+        "sample_size": 19,
+        "positive_count": 2,
+        "negative_count": 17,
+        "accuracy": 0.7894736842105263,
+        "precision": 0.25,
+        "recall": 0.5,
+        "f1": 0.3333333333333333,
+        "false_positive_rate": 0.17647058823529413,
+        "false_negative_rate": 0.5,
+        "confusion_counts": {
+          "true_negative": 14,
+          "false_positive": 3,
+          "false_negative": 1,
+          "true_positive": 1
+        },
+        "low_support": false
+      },
+      {
+        "group": "sex",
+        "value": "male",
+        "sample_size": 42,
+        "positive_count": 26,
+        "negative_count": 16,
+        "accuracy": 0.7619047619047619,
+        "precision": 0.7666666666666667,
+        "recall": 0.8846153846153846,
+        "f1": 0.8214285714285714,
+        "false_positive_rate": 0.4375,
+        "false_negative_rate": 0.11538461538461539,
+        "confusion_counts": {
+          "true_negative": 9,
+          "false_positive": 7,
+          "false_negative": 3,
+          "true_positive": 23
+        },
+        "low_support": false
+      }
+    ]
+  },
+  "group_gaps": {
+    "age_group": {
+      "precision": {
+        "max_gap": 0.5,
+        "highest_group": "45_54",
+        "highest_value": 1.0,
+        "lowest_group": "lt_45",
+        "lowest_value": 0.5,
+        "alert": true
+      },
+      "recall": {
+        "max_gap": 0.2857142857142857,
+        "highest_group": "65_plus",
+        "highest_value": 1.0,
+        "lowest_group": "45_54",
+        "lowest_value": 0.7142857142857143,
+        "alert": true
+      },
+      "f1": {
+        "max_gap": 0.19047619047619047,
+        "highest_group": "65_plus",
+        "highest_value": 0.8571428571428571,
+        "lowest_group": "lt_45",
+        "lowest_value": 0.6666666666666666,
+        "alert": true
+      },
+      "false_negative_rate": {
+        "max_gap": 0.2857142857142857,
+        "highest_group": "45_54",
+        "highest_value": 0.2857142857142857,
+        "lowest_group": "65_plus",
+        "lowest_value": 0.0,
+        "alert": true
+      },
+      "false_positive_rate": {
+        "max_gap": 0.5454545454545454,
+        "highest_group": "55_64",
+        "highest_value": 0.5454545454545454,
+        "lowest_group": "45_54",
+        "lowest_value": 0.0,
+        "alert": true
+      }
+    },
+    "sex": {
+      "precision": {
+        "max_gap": 0.5166666666666667,
+        "highest_group": "male",
+        "highest_value": 0.7666666666666667,
+        "lowest_group": "fem",
+        "lowest_value": 0.25,
+        "alert": true
+      },
+      "recall": {
+        "max_gap": 0.3846153846153846,
+        "highest_group": "male",
+        "highest_value": 0.8846153846153846,
+        "lowest_group": "fem",
+        "lowest_value": 0.5,
+        "alert": true
+      },
+      "f1": {
+        "max_gap": 0.4880952380952381,
+        "highest_group": "male",
+        "highest_value": 0.8214285714285714,
+        "lowest_group": "fem",
+        "lowest_value": 0.3333333333333333,
+        "alert": true
+      },
+      "false_negative_rate": {
+        "max_gap": 0.3846153846153846,
+        "highest_group": "fem",
+        "highest_value": 0.5,
+        "lowest_group": "male",
+        "lowest_value": 0.11538461538461539,
+        "alert": true
+      },
+      "false_positive_rate": {
+        "max_gap": 0.26102941176470584,
+        "highest_group": "male",
+        "highest_value": 0.4375,
+        "lowest_group": "fem",
+        "lowest_value": 0.17647058823529413,
+        "alert": true
+      }
+    }
+  },
+  "alerts": [
+    {
+      "group": "age_group",
+      "metric": "precision",
+      "max_gap": 0.5,
+      "threshold": 0.15,
+      "highest_group": "45_54",
+      "lowest_group": "lt_45"
+    },
+    {
+      "group": "age_group",
+      "metric": "recall",
+      "max_gap": 0.2857142857142857,
+      "threshold": 0.15,
+      "highest_group": "65_plus",
+      "lowest_group": "45_54"
+    },
+    {
+      "group": "age_group",
+      "metric": "f1",
+      "max_gap": 0.19047619047619047,
+      "threshold": 0.15,
+      "highest_group": "65_plus",
+      "lowest_group": "lt_45"
+    },
+    {
+      "group": "age_group",
+      "metric": "false_negative_rate",
+      "max_gap": 0.2857142857142857,
+      "threshold": 0.15,
+      "highest_group": "45_54",
+      "lowest_group": "65_plus"
+    },
+    {
+      "group": "age_group",
+      "metric": "false_positive_rate",
+      "max_gap": 0.5454545454545454,
+      "threshold": 0.15,
+      "highest_group": "55_64",
+      "lowest_group": "45_54"
+    },
+    {
+      "group": "sex",
+      "metric": "precision",
+      "max_gap": 0.5166666666666667,
+      "threshold": 0.15,
+      "highest_group": "male",
+      "lowest_group": "fem"
+    },
+    {
+      "group": "sex",
+      "metric": "recall",
+      "max_gap": 0.3846153846153846,
+      "threshold": 0.15,
+      "highest_group": "male",
+      "lowest_group": "fem"
+    },
+    {
+      "group": "sex",
+      "metric": "f1",
+      "max_gap": 0.4880952380952381,
+      "threshold": 0.15,
+      "highest_group": "male",
+      "lowest_group": "fem"
+    },
+    {
+      "group": "sex",
+      "metric": "false_negative_rate",
+      "max_gap": 0.3846153846153846,
+      "threshold": 0.15,
+      "highest_group": "fem",
+      "lowest_group": "male"
+    },
+    {
+      "group": "sex",
+      "metric": "false_positive_rate",
+      "max_gap": 0.26102941176470584,
+      "threshold": 0.15,
+      "highest_group": "male",
+      "lowest_group": "fem"
+    }
+  ],
+  "summary": {
+    "alert_count": 10,
+    "groups_with_alerts": [
+      "age_group",
+      "sex"
+    ],
+    "limited_confidence_groups": []
+  }
+}

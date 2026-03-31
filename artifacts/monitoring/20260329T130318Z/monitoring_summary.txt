@@ -1,0 +1,8 @@
+Status: retraining_recommended
+Prediction count: 18
+Error rate: 0.0526
+Latency p95 ms: 77.26
+Data quality alerts: 5
+Drift alerts: 15
+Retraining recommended: True
+Retraining reasons: operational_error_rate
